@@ -8,9 +8,13 @@ import numpy as np
 
 import torch
 from torch.optim import lr_scheduler
+import torch_geometric
+import torchvision
 
 from torchdrug import core, models, tasks, datasets, utils
 from torchdrug.utils import comm
+from torchdrug.datasets.enzyme_commission import EnzymeCommission
+from torchdrug.data.protein import Protein
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import util

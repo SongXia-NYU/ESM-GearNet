@@ -1,8 +1,8 @@
-output_dir: ~/scratch/aaai24_output
+output_dir: ./dump/aaai24_output
 
 dataset:
   class: EnzymeCommission
-  path: ~/scratch/protein-datasets/
+  path: /scratch/sx801/scripts/ESM-GearNet/dump/aaai24_output/MultipleBinaryClassification/EnzymeCommission/FusionNetwork/2024-01-04-03-48-47/dump/protein-datasets
   test_cutoff: 0.95
   atom_feature: null
   bond_feature: null
@@ -20,7 +20,7 @@ task:
     class: FusionNetwork
     sequence_model:
       class: ESM
-      path: ~/scratch/protein-model-weights/esm-model-weights/
+      path: /scratch/sx801/scripts/ESM-GearNet/dump/aaai24_output/MultipleBinaryClassification/EnzymeCommission/FusionNetwork/2024-01-04-03-48-47/dump/protein-model-weights/esm-model-weights
       model: ESM-2-650M
     structure_model:
       class: GearNet
@@ -58,11 +58,11 @@ scheduler:
   patience: 5
 
 engine:
-  gpus: [0, 1, 2, 3]
-  batch_size: 2
+  gpus: [0]
+  batch_size: 8
   log_interval: 1000
 
-# model_checkpoint: {{ ckpt }}
+model_checkpoint: /scratch/sx801/scripts/ESM-GearNet/pretrain_models/mc_esm_gearnet.pth
 
 sequence_model_lr_ratio: 0.1
 
